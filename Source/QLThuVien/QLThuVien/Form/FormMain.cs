@@ -27,14 +27,14 @@ namespace QLThuVien
             txtUserdn.Text = "User: " + tendangnhap;
             GUI.ucMuonTra uc = new GUI.ucMuonTra(tendangnhap);//gắn uc vào from
             uc.Dock = DockStyle.Fill;
-            xtraTabPage1.Controls.Add(uc);                    
+            xtraTabPage1.Controls.Add(uc);
             //tille chính đổi trong suốt
             var a = this.PointToScreen(labelmain.Location);
             a = picturemain.PointToClient(a);
             labelmain.Parent = picturemain;
             labelmain.Location = a;
             labelmain.BackColor = Color.Transparent;
-          //  labelmain.Text = "Demo library";
+            //  labelmain.Text = "Demo library";
             uc2();//gắn uc2 vào tab 2
             uc3();// gắn uc3 vào tab 3
             uc6(tendangnhap);
@@ -74,7 +74,7 @@ namespace QLThuVien
             xtraTabPage2.Controls.Add(uc_NV);
         }
         private void navBarItem4_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {            
+        {
             Chagepassword cp = new Chagepassword(s);
             cp.Show();
         }
@@ -100,8 +100,8 @@ namespace QLThuVien
         private void FormMain_Load(object sender, EventArgs e)
         {
 
-           // Chay();
-            
+            // Chay();
+
         }
         public void Chay()
         {
@@ -112,7 +112,7 @@ namespace QLThuVien
 
         private void navBarItem12_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            
+
             dg = new ThongKeDocGia();
             dg.Show();
         }
@@ -136,7 +136,7 @@ namespace QLThuVien
 
         private void mãĐộcGiảToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void mượnSáchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace QLThuVien
         }
 
         private void khôiPhụcMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
-        {         
+        {
             ttt = new Chagepassword(s);
             ttt.Show();
         }
@@ -177,7 +177,7 @@ namespace QLThuVien
         }
 
         private void navBarItem13_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {          
+        {
             tks = new Thongkesach();
             tks.Show();
         }
@@ -194,10 +194,10 @@ namespace QLThuVien
                 Application.Exit();
         }
 
-        private void navBarItem6_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        private void navBarItem7_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //tìm kiếm theo mã
-
+            tracuudocgia tc = new tracuudocgia();
+            tc.Show();
         }
     }
 }

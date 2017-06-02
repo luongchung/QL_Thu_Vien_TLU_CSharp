@@ -68,7 +68,6 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtSoHD = new DevExpress.XtraEditors.TextEdit();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.labNVGD = new DevExpress.XtraEditors.LabelControl();
             this.txtGhiChu = new DevExpress.XtraEditors.MemoEdit();
@@ -105,6 +104,7 @@
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txt_shd = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -113,7 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdata)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoHD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textMS.Properties)).BeginInit();
@@ -473,17 +472,6 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 8;
             // 
-            // txtSoHD
-            // 
-            this.txtSoHD.EditValue = "";
-            this.txtSoHD.Enabled = false;
-            this.txtSoHD.Location = new System.Drawing.Point(88, 53);
-            this.txtSoHD.Name = "txtSoHD";
-            this.txtSoHD.Size = new System.Drawing.Size(47, 20);
-            this.txtSoHD.TabIndex = 50;
-            this.txtSoHD.Tag = "Mời  nhập mã thẻ....";
-            this.txtSoHD.EditValueChanged += new System.EventHandler(this.txtSoHD_EditValueChanged_1);
-            // 
             // labelControl23
             // 
             this.labelControl23.Location = new System.Drawing.Point(18, 32);
@@ -605,7 +593,7 @@
             // 
             // groupControl3
             // 
-            this.groupControl3.Controls.Add(this.txtSoHD);
+            this.groupControl3.Controls.Add(this.txt_shd);
             this.groupControl3.Controls.Add(this.btnHuyS);
             this.groupControl3.Controls.Add(this.gridControl3);
             this.groupControl3.Controls.Add(this.btnHoanTat);
@@ -847,6 +835,15 @@
             this.gridColumn21.VisibleIndex = 5;
             this.gridColumn21.Width = 23;
             // 
+            // txt_shd
+            // 
+            this.txt_shd.Location = new System.Drawing.Point(88, 56);
+            this.txt_shd.Name = "txt_shd";
+            this.txt_shd.Size = new System.Drawing.Size(46, 21);
+            this.txt_shd.TabIndex = 45;
+            this.txt_shd.TextChanged += new System.EventHandler(this.txt_shd_TextChanged);
+            this.txt_shd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_shd_KeyPress);
+            // 
             // ucMuonTra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -865,7 +862,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvdata)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoHD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textMS.Properties)).EndInit();
@@ -954,8 +950,8 @@
         private DevExpress.XtraGrid.GridControl gridControl3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
-        private DevExpress.XtraEditors.TextEdit txtSoHD;
         private DevExpress.Utils.ImageCollection Icon;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private System.Windows.Forms.TextBox txt_shd;
     }
 }

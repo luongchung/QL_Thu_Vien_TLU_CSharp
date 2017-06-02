@@ -138,6 +138,12 @@
     <Compile Include="Timkiemtheoten.Designer.cs">
       <DependentUpon>Timkiemtheoten.cs</DependentUpon>
     </Compile>
+    <Compile Include="tracuudocgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tracuudocgia.Designer.cs">
+      <DependentUpon>tracuudocgia.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ucAn.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Timkiemtheoten.resx">
       <DependentUpon>Timkiemtheoten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tracuudocgia.resx">
+      <DependentUpon>tracuudocgia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\ucAn.resx">
       <DependentUpon>ucAn.cs</DependentUpon>

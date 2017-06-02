@@ -35,7 +35,7 @@ namespace QLThuVien.DAL
                 da.Fill(dt);
 
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -63,7 +63,7 @@ namespace QLThuVien.DAL
                 da.Fill(dt);
 
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -81,7 +81,7 @@ namespace QLThuVien.DAL
             try
             {
                 con = ds.getConnect();
-                cmd = new SqlCommand(sql,con);
+                cmd = new SqlCommand(sql, con);
                 con.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@MaNM", SqlDbType.NVarChar).Value = nm.MaNM;
@@ -128,7 +128,7 @@ namespace QLThuVien.DAL
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -153,7 +153,7 @@ namespace QLThuVien.DAL
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -194,7 +194,7 @@ namespace QLThuVien.DAL
                 con.Close();
             }
             return dt;
-        }    
+        }
         ////////////////////lớp nhân viên/////////////////////////////////////////
         public DataTable getallNV()
         {
@@ -207,7 +207,7 @@ namespace QLThuVien.DAL
                 dt = new DataTable();
                 da.Fill(dt);
             }
-            catch(Exception )
+            catch (Exception)
             {
 
             }
@@ -235,7 +235,7 @@ namespace QLThuVien.DAL
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -264,7 +264,7 @@ namespace QLThuVien.DAL
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -285,11 +285,12 @@ namespace QLThuVien.DAL
                 cmd = new SqlCommand(sql, con);
                 con.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@Id", SqlDbType.NVarChar).Value = nv.Id;               
+                cmd.Parameters.Add("@Id", SqlDbType.NVarChar).Value = nv.Id;
                 cmd.ExecuteNonQuery();
                 kt = true;
+
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -338,7 +339,7 @@ namespace QLThuVien.DAL
                 dt = new DataTable();
                 da.Fill(dt);
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -367,7 +368,7 @@ namespace QLThuVien.DAL
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -385,7 +386,7 @@ namespace QLThuVien.DAL
             try
             {
                 con = ds.getConnect();
-                cmd = new SqlCommand(sql,con);
+                cmd = new SqlCommand(sql, con);
                 con.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@MaL", SqlDbType.NVarChar).Value = ls.MaloaiS1;
@@ -396,7 +397,7 @@ namespace QLThuVien.DAL
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -421,7 +422,7 @@ namespace QLThuVien.DAL
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
-            catch (Exception )
+            catch (Exception)
             {
 
             }
@@ -448,7 +449,7 @@ namespace QLThuVien.DAL
                 dt = new DataTable();
                 da.Fill(dt);
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
@@ -471,7 +472,7 @@ namespace QLThuVien.DAL
                 con.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@MaNV", SqlDbType.NVarChar).Value = dn.MaNV1;
-                cmd.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = dn.Pass1;               
+                cmd.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = dn.Pass1;
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
@@ -523,7 +524,7 @@ namespace QLThuVien.DAL
                 con.Open();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@MaS", SqlDbType.NVarChar).Value = s.MaS1;
-                cmd.Parameters.Add("@MaL", SqlDbType.NVarChar).Value = s.MaL1;              
+                cmd.Parameters.Add("@MaL", SqlDbType.NVarChar).Value = s.MaL1;
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
@@ -550,7 +551,7 @@ namespace QLThuVien.DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@Id", SqlDbType.Int).Value = s.Id1;
                 cmd.Parameters.Add("@MaS", SqlDbType.NVarChar).Value = s.MaS1;
-                cmd.Parameters.Add("@MaL", SqlDbType.NVarChar).Value = s.MaL1;               
+                cmd.Parameters.Add("@MaL", SqlDbType.NVarChar).Value = s.MaL1;
                 cmd.ExecuteNonQuery();
                 kt = true;
             }
@@ -1222,5 +1223,48 @@ namespace QLThuVien.DAL
 
             return dt;
         }
+
+
+
+
+        public DataTable getSachDocGia(string madocgia)
+        {
+            string sql = "Prd_tracudocgia";
+            try
+            {
+                con = ds.getConnect();
+                cmd = new SqlCommand(sql, con);
+                con.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaNM", SqlDbType.NVarChar).Value = madocgia;
+                da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                dt = new DataTable();
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                da.Dispose();
+                con.Close();
+            }
+            return dt;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

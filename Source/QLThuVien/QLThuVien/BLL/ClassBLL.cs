@@ -25,7 +25,7 @@ namespace QLThuVien.BLL
         public bool InsertNM(Entities.tblnguoimuon nm1)
         {
             return dal.InsertNM(nm1);
-        }        
+        }
         public bool UpdateNM(Entities.tblnguoimuon nm)
         {
             return dal.UpdateNM(nm);
@@ -42,7 +42,7 @@ namespace QLThuVien.BLL
         public bool InsertNV(Entities.tblNhanVien nv)
         {
             return dal.InsertNV(nv);
-        } 
+        }
         public bool UpdateNV(Entities.tblNhanVien nv)
         {
             return dal.UpdateNV(nv);
@@ -134,7 +134,7 @@ namespace QLThuVien.BLL
         }
         public DataTable Getall_MaS(string s)
         {
-           return dal.Getall_MaS(s);
+            return dal.Getall_MaS(s);
         }
         public bool Insert_Tra(Entities.tblTra s)
         {
@@ -203,6 +203,10 @@ namespace QLThuVien.BLL
         public DataTable getDGDM()
         {
             return dal.getDGDM();
+        }
+        public DataTable getSachDocGia(string madocgia)
+        {
+            return dal.getSachDocGia(madocgia);
         }
     }
 }

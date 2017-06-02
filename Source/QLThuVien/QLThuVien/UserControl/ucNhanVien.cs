@@ -12,13 +12,13 @@ namespace QLThuVien.GUI
 {
     public partial class ucNhanVien : UserControl
     {
-        DAL.GetPath gp = new DAL.GetPath();  
+        DAL.GetPath gp = new DAL.GetPath();
         Entities.tblNhanVien nv01;
         string checkmenu = "";
         DataTable dt;
         BLL.ClassBLL bll_NV;
         public ucNhanVien()
-        {            
+        {
             InitializeComponent();
             lockbuttonNV();
         }
@@ -60,23 +60,27 @@ namespace QLThuVien.GUI
                     return;
                 }
                 else
+                {
                     MessageBox.Show("Lỗi, Không thể xóa được!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    binding();
+                }
+
 
             }
             if (checkObject())
             {
-                
-                if(checkmenu=="add")
+
+                if (checkmenu == "add")
                 {
                     bool kt = bll_NV.InsertNV(nv01);
-                    if(kt)
+                    if (kt)
                     {
                         MessageBox.Show("Bạn vừa lưu thành công !", "Thêm thành công", MessageBoxButtons.OK);
                         Reset();
                         reload_NV();
                     }
                     else
-                        MessageBox.Show("Trùng mã nhân viên, xin vui lòng nhập lại !", "Thêm không thành công", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        MessageBox.Show("Trùng mã nhân viên, xin vui lòng nhập lại !", "Thêm không thành công", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
                 if (checkmenu == "sua")
@@ -93,12 +97,12 @@ namespace QLThuVien.GUI
                     else
                         MessageBox.Show("Lỗi, Không thể sửa được! có thể trùng mã nhân viên", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                }              
+                }
 
 
 
             }
-            
+
         }
         public bool checkObject()
         {
@@ -115,13 +119,13 @@ namespace QLThuVien.GUI
                 txtTenNV.Focus();
                 return false;
 
-            }           
+            }
 
             return true;
         }
         public void lockbuttonNV()
         {
-            txtTenNV.ReadOnly= true;
+            txtTenNV.ReadOnly = true;
             txtSDT.ReadOnly = true;
             txtMaNV.ReadOnly = true;
             txtDiaChi.ReadOnly = true;
@@ -144,14 +148,18 @@ namespace QLThuVien.GUI
             btnchuyen.Enabled = true;
         }
         private void simpleButton1_Click(object sender, EventArgs e)
-        {           
+        {
             lockbuttonNV();
             reload_NV();
             Reset();
         }
         private void btnsua_Click(object sender, EventArgs e)
         {
-            
+            UnlockbuttonNV();
+            binding();
+            btnhoantat.Text = "Hoàn tất sửa";
+            checkmenu = "sua";
+            txtMaNV.Focus();
         }
         public void binding()
         {
@@ -171,15 +179,15 @@ namespace QLThuVien.GUI
             txtMaNV.Text = "";
             txtTenNV.Text = "";
             txtSDT.Text = "";
-            txtDiaChi.Text = "";         
+            txtDiaChi.Text = "";
         }
         private void btnxoa_Click(object sender, EventArgs e)
         {
             lockdelete();
             btnhoantat.Text = "Hoàn tất xóa";
-            checkmenu = "xoa";            
+            checkmenu = "xoa";
             binding();
-            
+
         }
         public void lockdelete()
         {
@@ -193,7 +201,6 @@ namespace QLThuVien.GUI
             btnhoantat.Enabled = true;
             btnchuyen.Enabled = true;
         }
-
         private void btnEXCEL_Click(object sender, EventArgs e)
         {
             string FileName = gp.getPath() + "Tatcanhanvien.xls";
@@ -206,5 +213,5 @@ namespace QLThuVien.GUI
             }
         }
     }
-    
+
 }
