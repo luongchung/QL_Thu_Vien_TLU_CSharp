@@ -20,6 +20,7 @@ namespace QLThuVien.GUI
         BLL.ClassBLL bll_MT;
         int dem = 1;
         bool kiemtra=false;
+        
         public ucMuonTra(string s)
         {
             InitializeComponent();
@@ -28,7 +29,9 @@ namespace QLThuVien.GUI
             txtNgayM.Value = DateTime.Now;
             LayMax();
             Reset_K();
-            
+            txt_shd.Enabled = false;
+
+
 
         }
         public bool check_MaS()
@@ -151,7 +154,7 @@ namespace QLThuVien.GUI
                 txtMaT.Focus();
                 return false;
             }
-            if (string.IsNullOrEmpty(txtSoHD.Text))
+            if (string.IsNullOrEmpty(txt_shd.Text))
             {
 
                 MessageBox.Show("Bạn chưa có số hóa đơn !", "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -169,7 +172,7 @@ namespace QLThuVien.GUI
                     hdm = new Entities.tblHDMuon();
                     hdm.MaNM1 = labMaT.Text;
                     hdm.ManNV1 = labNVGD.Text;
-                    hdm.SoHDMuon1 = int.Parse(txtSoHD.Text);
+                    hdm.SoHDMuon1 = int.Parse(txt_shd.Text);
                     hdm.NgayM1 = DateTime.Parse(txtNgayM.Value.ToString());
                     hdm.GhiChu1 = txtGhiChu.Text;
                     kiemtra = bll_MT.Insert_MuonS(hdm);
@@ -177,7 +180,7 @@ namespace QLThuVien.GUI
 
                     ctm = new Entities.tblChiTietMuon();
                     ctm.MaS1 = labMaS.Text;
-                    ctm.SoHD1 = int.Parse(txtSoHD.Text);
+                    ctm.SoHD1 = int.Parse(txt_shd.Text);
                     bool kiemtra1 = bll_MT.Insert_ChiTietM(ctm);
                     if (kiemtra1 && kiemtra)
                     {
@@ -188,13 +191,13 @@ namespace QLThuVien.GUI
                         Reset_K();
                         unLocknut();
                         btnHoanTat.Enabled = true;
-                        Reload_M(int.Parse(txtSoHD.Text));
+                        Reload_M(int.Parse(txt_shd.Text));
                         MoNut();
                     }
                     else
+                    {
                         MessageBox.Show("Không thêm được! kiểm tra lại. ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                                                 
+                    }                                                                 
             }
         }
         public bool checknut1()
@@ -224,7 +227,7 @@ namespace QLThuVien.GUI
                 ktra--;
                 MessageBox.Show("Bạn vừa xóa thành công !", "xóa thành công", MessageBoxButtons.OK);
                 binding_K();
-                Reload_M(int.Parse(txtSoHD.Text));
+                Reload_M(int.Parse(txt_shd.Text));
                 MoNut();
             }
             else
@@ -250,7 +253,7 @@ namespace QLThuVien.GUI
         }
         private void btnHuyHD_Click(object sender, EventArgs e)
         {
-            bool kiemtraxoa = bll_MT.Delete_HDAll(int.Parse(txtSoHD.Text));
+            bool kiemtraxoa = bll_MT.Delete_HDAll(int.Parse(txt_shd.Text));
             if (kiemtraxoa)
             {
                 dem = 1;
@@ -259,7 +262,7 @@ namespace QLThuVien.GUI
                 Reset_K();
                 Reset_S();
                 LayMax();
-                Reload_M(int.Parse(txtSoHD.Text));
+                Reload_M(int.Parse(txt_shd.Text));
 
             }
             else
@@ -268,8 +271,7 @@ namespace QLThuVien.GUI
         public void Reset_S()
         {
             txtMaT.Text = null;
-            txtGhiChu.Text = null;
-            //txtSoHD.Text = null;
+            txtGhiChu.Text = null;        
             labTen.Text = null;
             labMaT.Text = null;
             labkhoa.Text = null;
@@ -290,7 +292,7 @@ namespace QLThuVien.GUI
         }
         private void txtSoHD_EditValueChanged(object sender, EventArgs e)
         {
-            Reload_M(int.Parse(txtSoHD.Text));
+            Reload_M(int.Parse(txt_shd.Text));
         }
         public bool kiemtra1()
         {
@@ -307,8 +309,8 @@ namespace QLThuVien.GUI
         }
         public void binding_SoHD()
         {
-            txtSoHD.DataBindings.Clear();
-            //txtSoHD.DataBindings.Add("Text", gridControl3.DataSource, "SoHD");
+            txt_shd.DataBindings.Clear();
+            txt_shd.DataBindings.Add("Text", gridControl3.DataSource, "SoHD");
         }
         public void LayMax()
         {
@@ -319,9 +321,24 @@ namespace QLThuVien.GUI
             binding_SoHD();
         }
 
-        private void txtSoHD_EditValueChanged_1(object sender, EventArgs e)
+        private void txt_shd_TextChanged(object sender, EventArgs e)
         {
-            Reload_M(int.Parse(txtSoHD.Text));
+            try
+            {
+                Reload_M(int.Parse(txt_shd.Text));
+            }
+            catch
+            {
+
+            }
+          
+            
+        }
+
+        private void txt_shd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace QLThuVien.DAL
         string tr;
         public GetPath()
         {
-            tr = @"C:\Users\chung\OneDrive\Documents\FileExport\";
+            tr = @"D:\";
         }
         public string getPath()
         {

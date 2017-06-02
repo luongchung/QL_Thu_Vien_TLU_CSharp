@@ -194,10 +194,10 @@ namespace QLThuVien
                 Application.Exit();
         }
 
-        private void navBarItem6_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        private void navBarItem7_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //tìm kiếm theo mã
-
+            tracuudocgia tc = new tracuudocgia();
+            tc.Show();
         }
     }
 }

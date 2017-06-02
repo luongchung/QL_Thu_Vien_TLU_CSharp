@@ -16,8 +16,8 @@ namespace QLThuVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormMain("admin"));
-            Application.Run(new Formdangnhap());
+            Application.Run(new FormMain("admin"));
+            //Application.Run(new Formdangnhap());
         }
     }
 }

@@ -288,6 +288,7 @@ namespace QLThuVien.DAL
                 cmd.Parameters.Add("@Id", SqlDbType.NVarChar).Value = nv.Id;               
                 cmd.ExecuteNonQuery();
                 kt = true;
+                
             }
             catch (Exception )
             {
@@ -1222,5 +1223,48 @@ namespace QLThuVien.DAL
 
             return dt;
         }
+
+
+
+
+        public DataTable getSachDocGia(string madocgia)
+        {
+            string sql = "Prd_tracudocgia";
+            try
+            {
+                con = ds.getConnect();
+                cmd = new SqlCommand(sql, con);
+                con.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaNM", SqlDbType.NVarChar).Value = madocgia;
+                da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                dt = new DataTable();
+                da.Fill(dt);
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                da.Dispose();
+                con.Close();
+            }
+            return dt;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

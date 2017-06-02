@@ -60,7 +60,11 @@ namespace QLThuVien.GUI
                     return;
                 }
                 else
+                {
                     MessageBox.Show("Lỗi, Không thể xóa được!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    binding();
+                }
+                    
 
             }
             if (checkObject())
@@ -145,13 +149,17 @@ namespace QLThuVien.GUI
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {           
-            lockbuttonNV();
+            lockbuttonNV();           
             reload_NV();
             Reset();
         }
         private void btnsua_Click(object sender, EventArgs e)
         {
-            
+            UnlockbuttonNV();
+            binding();
+            btnhoantat.Text = "Hoàn tất sửa";
+            checkmenu = "sua";
+            txtMaNV.Focus();
         }
         public void binding()
         {
@@ -193,7 +201,6 @@ namespace QLThuVien.GUI
             btnhoantat.Enabled = true;
             btnchuyen.Enabled = true;
         }
-
         private void btnEXCEL_Click(object sender, EventArgs e)
         {
             string FileName = gp.getPath() + "Tatcanhanvien.xls";

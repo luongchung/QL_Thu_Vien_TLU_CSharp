@@ -204,5 +204,9 @@ namespace QLThuVien.BLL
         {
             return dal.getDGDM();
         }
+        public DataTable getSachDocGia(string madocgia)
+        {
+            return dal.getSachDocGia(madocgia);
+        }
     }
 }

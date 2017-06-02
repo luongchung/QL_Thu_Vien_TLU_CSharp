@@ -115,6 +115,7 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchTK.Size = new System.Drawing.Size(167, 20);
             this.searchTK.TabIndex = 2;
+            
             this.searchTK.EditValueChanged += new System.EventHandler(this.searchTK_EditValueChanged);
             // 
             // txtThanh

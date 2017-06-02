@@ -53,9 +53,6 @@
             this.navBarItem12 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem13 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem8 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem9 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
@@ -282,8 +279,7 @@
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.navBarGroup2,
-            this.navBarGroup1,
-            this.navBarGroup4});
+            this.navBarGroup1});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.navBarItem1,
             this.navBarItem2,
@@ -292,9 +288,7 @@
             this.navBarItem5,
             this.navBarItem12,
             this.navBarItem13,
-            this.navBarItem7,
-            this.navBarItem8,
-            this.navBarItem9});
+            this.navBarItem7});
             this.navBarControl1.Location = new System.Drawing.Point(2, 23);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 196;
@@ -343,28 +337,7 @@
             this.navBarItem7.Caption = "Tra cứu độc giả";
             this.navBarItem7.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.LargeImage")));
             this.navBarItem7.Name = "navBarItem7";
-            // 
-            // navBarGroup4
-            // 
-            this.navBarGroup4.Caption = "Khác";
-            this.navBarGroup4.Expanded = true;
-            this.navBarGroup4.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem8),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem9)});
-            this.navBarGroup4.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup4.LargeImage")));
-            this.navBarGroup4.Name = "navBarGroup4";
-            // 
-            // navBarItem8
-            // 
-            this.navBarItem8.Caption = "Đóng phí";
-            this.navBarItem8.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem8.LargeImage")));
-            this.navBarItem8.Name = "navBarItem8";
-            // 
-            // navBarItem9
-            // 
-            this.navBarItem9.Caption = "Nộp phạt";
-            this.navBarItem9.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem9.LargeImage")));
-            this.navBarItem9.Name = "navBarItem9";
+            this.navBarItem7.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem7_LinkClicked);
             // 
             // navBarItem1
             // 
@@ -654,7 +627,6 @@
             this.navBarItem6.Caption = "Tìm kiếm theo tên";
             this.navBarItem6.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem6.LargeImage")));
             this.navBarItem6.Name = "navBarItem6";
-            this.navBarItem6.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem6_LinkClicked);
             // 
             // FormMain
             // 
@@ -718,7 +690,6 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem12;
         private DevExpress.XtraNavBar.NavBarItem navBarItem13;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup4;
         private DevExpress.XtraNavBar.NavBarItem navBarItem1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
         private DevExpress.LookAndFeel.DefaultLookAndFeel giaodien;
@@ -757,8 +728,6 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
         private DevExpress.XtraNavBar.NavBarItem navBarItem6;
         private DevExpress.XtraNavBar.NavBarItem navBarItem7;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem8;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem9;
         private System.Windows.Forms.ToolStripMenuItem hỗTrợToolStripMenuItem;
     }
 }
